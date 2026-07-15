@@ -1,13 +1,11 @@
-
-
 (function () {
   'use strict';
 
-  const $  = (sel, ctx = document) => ctx.querySelector(sel);
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-  function escapeHTML(str = '') {
-    return String(str)
+  function escapeHTML(str) {
+    return String(str == null ? '' : str)
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
@@ -15,420 +13,321 @@
       .replace(/'/g, '&#39;');
   }
 
-
   const ICONS = {
-    github:   '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>',
-    linkedin: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3v9zM6.5 8.3a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM19 19h-3v-4.7c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.5V19h-3v-9h2.9v1.2h.04c.4-.8 1.4-1.5 2.8-1.5 3 0 3.6 2 3.6 4.5V19z"/></svg>',
-    twitter:  '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.2h3.7l-8 9.1 9.4 12.5h-7.4l-5.8-7.6-6.6 7.6H.4l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9zm-1.3 19.6h2L6.5 3.3H4.4l13.2 17.5z"/></svg>',
-    dribbble: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm7.9 5.5a10 10 0 0 1 2.3 6.3c-.3-.1-3.5-.7-6.7-.3-.1-.3-.2-.5-.4-.8 3.2-1.3 4.6-3.2 4.8-5.2zM12 2.2c2.5 0 4.8.9 6.5 2.5-.2.3-1.4 2-4.5 3.2-1.4-2.6-3-4.7-3.2-5C11.2 2.4 11.6 2.2 12 2.2zM8.4 3.9c.2.3 1.7 2.4 3.2 4.9C7.7 9.9 4.2 9.9 3.8 9.9 4.4 7.2 6.1 4.9 8.4 3.9zM3.5 12v-.3c.4 0 4.6.1 8.9-1.3.3.5.5 1 .8 1.5-3.7 1-6.7 4-7.3 7.6A9.8 9.8 0 0 1 3.5 12zm8.5 9.8c-2.4 0-4.5-.8-6.2-2.2.4-2.9 3-5.4 6.2-6.5 1 2.6 1.5 4.8 1.6 5.4-1 .6-2 .9-3 .9zm4.4-1.9c-.1-.6-.5-2.6-1.4-5.1 3-.5 5.6.3 5.9.4-.4 2.1-1.6 4-3.4 5.2-.4-.2-.7-.3-1.1-.5z"/></svg>',
-    facebook:  '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>',
-    instagram: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C20.32 1.35 19.65.94 18.86.63c-.76-.3-1.64-.5-2.91-.56C14.67.01 14.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-10.4a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>'
+    github: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>',
+    facebook: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg>',
+    instagram: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>',
+    twitter: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg>'
   };
 
+  function buildSocialLink(s) {
+    return '<li><a href="' + escapeHTML(s.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(s.name) + '" title="' + escapeHTML(s.name) + '">' + (ICONS[s.icon] || '') + '</a></li>';
+  }
 
   async function loadData() {
     try {
-      const res = await fetch('data.json');
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.json();
+      const response = await fetch('data/data.json');
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return await response.json();
     } catch (err) {
-      console.error('Failed to load data.json:', err);
-
+      console.error('Could not load data.json:', err);
       const grid = $('#projectGrid');
       if (grid) {
-        grid.innerHTML =
-          '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);">' +
-          '⚠ Could not load content from <code>data.json</code>. ' +
-          'If you opened this file directly with <code>file://</code>, please run it through a local web server ' +
-          '(e.g. <code>npx serve</code> or VS Code Live Server) — browsers block fetch() on local files.</p>';
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted)">Could not load <code>data.json</code>. Please run the site through a local web server (for example <code>python3 -m http.server</code>) because browsers block fetch() on file:// URLs.</p>';
       }
       return null;
     }
   }
 
-
-
-
   function renderHero(profile) {
-
     $('#heroNameBadge').textContent = profile.name.toUpperCase();
 
-
-
-    const roleShort = profile.roleTag || (profile.role || '')
-      .replace(/aspiring\s+/i, '')
-      .replace(/developer/i, '')
-      .trim()
-      .toUpperCase() || 'DEVELOPER';
-    $('#heroRoleTag').innerHTML = `
-      <span class="handle handle--tl"></span>
-      <span class="handle handle--tr"></span>
-      <span class="handle handle--bl"></span>
-      <span class="handle handle--br"></span>
-      ${escapeHTML(roleShort)}
-    `;
-
+    const roleTag = profile.roleTag || 'DEVELOPER';
+    $('#heroRoleTag').innerHTML =
+      '<span class="handle handle--tl"></span>' +
+      '<span class="handle handle--tr"></span>' +
+      '<span class="handle handle--bl"></span>' +
+      '<span class="handle handle--br"></span>' +
+      escapeHTML(roleTag);
 
     $('#heroYear').textContent = new Date().getFullYear();
 
-
-
     const taglineEl = $('#heroTagline');
     if (profile.taglineHTML) {
-      taglineEl.innerHTML = `<strong>${escapeHTML(profile.role)}.</strong> ${profile.taglineHTML}`;
+      taglineEl.innerHTML = '<strong>' + escapeHTML(profile.role) + '.</strong> ' + profile.taglineHTML;
     } else {
-      taglineEl.textContent = `${profile.role}. ${profile.tagline}`;
+      taglineEl.textContent = profile.role + '. ' + profile.tagline;
     }
 
-
-    document.title = `${profile.name} — ${profile.role}`;
-
-
-    const socials = $('#heroSocials');
-    socials.innerHTML = profile.socials.map(s => `
-      <li>
-        <a href="${escapeHTML(s.url)}" target="_blank" rel="noopener noreferrer"
-           aria-label="${escapeHTML(s.name)}" title="${escapeHTML(s.name)}">
-          ${ICONS[s.icon] || ''}
-        </a>
-      </li>
-    `).join('');
+    document.title = profile.name + ' — ' + profile.role;
+    $('#heroSocials').innerHTML = profile.socials.map(buildSocialLink).join('');
   }
-
 
   function renderAbout(about) {
     $('#aboutBackground').textContent = about.background;
-
-    const interests = $('#aboutInterests');
-    interests.innerHTML = about.interests
-      .map(i => `<li>${escapeHTML(i)}</li>`).join('');
-
-    const highlights = $('#aboutHighlights');
-    highlights.innerHTML = about.highlights
-      .map(h => `
-        <li>
-          <span class="stat-value">${escapeHTML(h.value)}</span>
-          <span class="stat-label">${escapeHTML(h.label)}</span>
-        </li>
-      `).join('');
+    $('#aboutInterests').innerHTML = about.interests.map(i => '<li>' + escapeHTML(i) + '</li>').join('');
+    $('#aboutHighlights').innerHTML = about.highlights.map(h =>
+      '<li><span class="stat-value">' + escapeHTML(h.value) + '</span><span class="stat-label">' + escapeHTML(h.label) + '</span></li>'
+    ).join('');
   }
-
 
   function renderSkills(skills) {
-    const techList = $('#technicalSkills');
-    const softList = $('#softSkills');
+    const tech = skills.filter(s => s.category === 'technical');
+    const soft = skills.filter(s => s.category === 'soft');
 
-    const technical = skills.filter(s => s.category === 'technical');
-    const soft      = skills.filter(s => s.category === 'soft');
+    $('#technicalSkills').innerHTML = tech.map(s =>
+      '<li class="skill-item">' +
+      '<div class="skill-meta"><span>' + escapeHTML(s.name) + '</span><span class="skill-percent">' + s.level + '%</span></div>' +
+      '<div class="skill-bar"><div class="skill-bar-fill" data-level="' + s.level + '"></div></div>' +
+      '</li>'
+    ).join('');
 
-
-    techList.innerHTML = technical.map(s => `
-      <li class="skill-item">
-        <div class="skill-meta">
-          <span>${escapeHTML(s.name)}</span>
-          <span class="skill-percent">${s.level}%</span>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-level="${s.level}" style="width:0%"></div>
-        </div>
-      </li>
-    `).join('');
-
-
-    softList.innerHTML = soft.map(s => `
-      <li class="skill-tag">${escapeHTML(s.name)}</li>
-    `).join('');
+    $('#softSkills').innerHTML = soft.map(s => '<li class="skill-tag">' + escapeHTML(s.name) + '</li>').join('');
   }
-
 
   function renderProjects(projects) {
-    const grid = $('#projectGrid');
-    grid.innerHTML = projects.map(p => `
-      <article class="project-card reveal">
-        <div class="project-image">
-          <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.title)} preview" loading="lazy" />
-          ${p.featured ? '<span class="project-badge">Featured</span>' : ''}
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">${escapeHTML(p.title)}</h3>
-          <p class="project-desc">${escapeHTML(p.description)}</p>
-          <ul class="project-tags">
-            ${p.tags.map(t => `<li>${escapeHTML(t)}</li>`).join('')}
-          </ul>
-          <a href="${escapeHTML(p.link || '#')}" class="project-link"
-             ${p.link && p.link !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-             View Project
-          </a>
-        </div>
-      </article>
-    `).join('');
-  }
+    const categories = ['All'].concat(
+      Array.from(new Set(projects.map(p => p.category).filter(Boolean)))
+    );
 
+    $('#projectFilters').innerHTML = categories.map((cat, i) =>
+      '<button class="filter-btn' + (i === 0 ? ' is-active' : '') + '" data-filter="' + escapeHTML(cat) + '" role="tab" aria-selected="' + (i === 0) + '">' + escapeHTML(cat) + '</button>'
+    ).join('');
+
+    $('#projectGrid').innerHTML = projects.map(p =>
+      '<article class="project-card reveal" data-category="' + escapeHTML(p.category || '') + '">' +
+      '<div class="project-image">' +
+      '<img src="' + escapeHTML(p.image) + '" alt="' + escapeHTML(p.title) + ' preview" loading="lazy">' +
+      (p.featured ? '<span class="project-badge">Featured</span>' : '') +
+      '</div>' +
+      '<div class="project-body">' +
+      '<h3 class="project-title">' + escapeHTML(p.title) + '</h3>' +
+      '<p class="project-desc">' + escapeHTML(p.description) + '</p>' +
+      '<ul class="project-tags">' + p.tags.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' +
+      '<a href="' + escapeHTML(p.link || '#') + '" class="project-link"' + (p.link && p.link !== '#' ? ' target="_blank" rel="noopener noreferrer"' : '') + '>View Project</a>' +
+      '</div>' +
+      '</article>'
+    ).join('');
+
+    const filterBar = $('#projectFilters');
+    filterBar.addEventListener('click', function (e) {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      $$('.filter-btn', filterBar).forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+      const filter = btn.dataset.filter;
+      $$('.project-card').forEach(card => {
+        const show = filter === 'All' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !show);
+      });
+    });
+  }
 
   function renderTimeline(timeline) {
-    const list = $('#timelineList');
-    list.innerHTML = timeline.map(t => `
-      <li class="timeline-item">
-        <div class="timeline-card reveal">
-          <span class="timeline-period">${escapeHTML(t.period)}</span>
-          <span class="timeline-type">${escapeHTML(t.type)}</span>
-          <h3 class="timeline-title">${escapeHTML(t.title)}</h3>
-          <p class="timeline-org">${escapeHTML(t.organization)}</p>
-          <p class="timeline-desc">${escapeHTML(t.description)}</p>
-        </div>
-      </li>
-    `).join('');
+    $('#timelineList').innerHTML = timeline.map(t =>
+      '<li class="timeline-item">' +
+      '<div class="timeline-card reveal">' +
+      '<span class="timeline-period">' + escapeHTML(t.period) + '</span>' +
+      '<span class="timeline-type">' + escapeHTML(t.type) + '</span>' +
+      '<h3 class="timeline-title">' + escapeHTML(t.title) + '</h3>' +
+      '<p class="timeline-org">' + escapeHTML(t.organization) + '</p>' +
+      '<p class="timeline-desc">' + escapeHTML(t.description) + '</p>' +
+      (t.link ? '<a href="' + escapeHTML(t.link) + '" class="timeline-link" target="_blank" rel="noopener noreferrer">View Repository →</a>' : '') +
+      '</div>' +
+      '</li>'
+    ).join('');
   }
 
-
   function renderContact(profile) {
-    const info = $('#contactInfo');
-    info.innerHTML = `
-      <li>
-        <span class="contact-icon" aria-hidden="true">@</span>
-        <div>
-          <span class="contact-label">Email</span>
-          <a class="contact-value" href="mailto:${escapeHTML(profile.email)}">${escapeHTML(profile.email)}</a>
-        </div>
-      </li>
-      <li>
-        <span class="contact-icon" aria-hidden="true">☎</span>
-        <div>
-          <span class="contact-label">Phone</span>
-          <a class="contact-value" href="tel:${escapeHTML(profile.phone.replace(/\s+/g, ''))}">${escapeHTML(profile.phone)}</a>
-        </div>
-      </li>
-      <li>
-        <span class="contact-icon" aria-hidden="true">⌖</span>
-        <div>
-          <span class="contact-label">Location</span>
-          <span class="contact-value">${escapeHTML(profile.location)}</span>
-        </div>
-      </li>
-      <li>
-        <span class="contact-icon" aria-hidden="true">●</span>
-        <div>
-          <span class="contact-label">Availability</span>
-          <span class="contact-value">${escapeHTML(profile.availability)}</span>
-        </div>
-      </li>
-    `;
+    const items = [
+      ['<svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>', 'Email', '<a class="contact-value" href="mailto:' + escapeHTML(profile.email) + '">' + escapeHTML(profile.email) + '</a>'],
+      ['<svg viewBox="0 0 16 16" fill="currentColor"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/></svg>', 'Phone', '<a class="contact-value" href="tel:' + escapeHTML(profile.phone.replace(/\s+/g, '')) + '">' + escapeHTML(profile.phone) + '</a>'],
+      ['<svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg>', 'Location', '<span class="contact-value">' + escapeHTML(profile.location) + '</span>'],
+      ['<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/></svg>', 'Availability', '<span class="contact-value">' + escapeHTML(profile.availability) + '</span>']
+    ];
 
+    $('#contactInfo').innerHTML = items.map(item =>
+      '<li><span class="contact-icon" aria-hidden="true">' + item[0] + '</span><div><span class="contact-label">' + item[1] + '</span>' + item[2] + '</div></li>'
+    ).join('');
 
-    const footerSocials = $('#footerSocials');
-    footerSocials.innerHTML = profile.socials.map(s => `
-      <li>
-        <a href="${escapeHTML(s.url)}" target="_blank" rel="noopener noreferrer"
-           aria-label="${escapeHTML(s.name)}" title="${escapeHTML(s.name)}">
-          ${ICONS[s.icon] || ''}
-        </a>
-      </li>
-    `).join('');
-
-
+    $('#footerSocials').innerHTML = profile.socials.map(buildSocialLink).join('');
     $('#year').textContent = new Date().getFullYear();
   }
 
-
-
-
   function initNavToggle() {
     const toggle = $('#navToggle');
-    const nav    = $('#primaryNav');
-
+    const nav = $('#primaryNav');
     if (!toggle || !nav) return;
 
-    const closeNav = () => {
-      nav.classList.remove('is-open');
-      toggle.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    };
-    const openNav = () => {
-      nav.classList.add('is-open');
-      toggle.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', 'true');
-    };
-
-    toggle.addEventListener('click', () => {
-      nav.classList.contains('is-open') ? closeNav() : openNav();
+    toggle.addEventListener('click', function () {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-
-    $$('.nav-link', nav).forEach(link =>
-      link.addEventListener('click', closeNav)
-    );
-
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
+    $$('.nav-link', nav).forEach(link => {
+      link.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
     });
 
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+      }
+    });
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) closeNav();
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 768) {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+      }
     });
   }
 
-
-
-
   function initBackToTop() {
-    const btn  = $('#backToTop');
+    const btn = $('#backToTop');
     if (!btn) return;
 
-    const onScroll = () => {
+    function onScroll() {
       btn.classList.toggle('is-visible', window.scrollY > 600);
-    };
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    btn.addEventListener('click', () =>
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    );
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     onScroll();
   }
 
-
   function initActiveNav() {
     const sections = $$('main section[id]');
-    const links    = $$('.nav-link');
+    const links = $$('.nav-link');
     if (!sections.length || !links.length) return;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            links.forEach(l =>
-              l.classList.toggle('is-active', l.getAttribute('href') === `#${id}`)
-            );
-          }
-        });
-      },
-      { rootMargin: '-45% 0px -50% 0px' }
-    );
-    sections.forEach(s => observer.observe(s));
-  }
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          links.forEach(function (link) {
+            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
 
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+  }
 
   function initRevealOnScroll() {
     const revealEls = $$('.reveal');
     if (!revealEls.length) return;
 
-
     if (!('IntersectionObserver' in window)) {
-      document.documentElement.classList.add('no-observer');
+      revealEls.forEach(el => el.classList.add('is-visible'));
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -50px 0px' }
-    );
+    const observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
     revealEls.forEach(el => observer.observe(el));
 
-
-    setTimeout(() => {
-      const stillHidden = $$('.reveal:not(.is-visible)');
-      if (stillHidden.length) {
-        document.documentElement.classList.add('no-observer');
-      }
+    setTimeout(function () {
+      $$('.reveal:not(.is-visible)').forEach(el => el.classList.add('is-visible'));
     }, 2500);
   }
 
-
-  function initSkillBarAnimation() {
+  function initSkillBars() {
     const bars = $$('.skill-bar-fill');
     if (!bars.length) return;
 
-
     if (!('IntersectionObserver' in window)) {
-
-      bars.forEach(b => {
-        b.style.width = `${b.dataset.level || 0}%`;
-      });
+      bars.forEach(bar => { bar.style.width = (bar.dataset.level || 0) + '%'; });
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const level = entry.target.dataset.level || 0;
-            entry.target.style.width = `${level}%`;
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -30px 0px' }
-    );
-    bars.forEach(b => observer.observe(b));
+    const observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const level = entry.target.dataset.level || 0;
+          entry.target.style.width = level + '%';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
 
+    bars.forEach(bar => observer.observe(bar));
 
-    setTimeout(() => {
-      const empty = $$('.skill-bar-fill').filter(b => !b.style.width || b.style.width === '0%');
-      empty.forEach(b => {
-        b.style.width = `${b.dataset.level || 0}%`;
+    setTimeout(function () {
+      bars.forEach(function (bar) {
+        if (!bar.style.width || bar.style.width === '0%') {
+          bar.style.width = (bar.dataset.level || 0) + '%';
+        }
       });
     }, 3000);
   }
-
 
   function initContactForm() {
     const form = $('#contactForm');
     const note = $('#formNote');
     if (!form || !note) return;
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-
-      const name    = form.name.value.trim();
-      const email   = form.email.value.trim();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
       const message = form.message.value.trim();
 
+      function showError(text) {
+        note.style.color = 'var(--c-orange)';
+        note.textContent = text;
+      }
+
+      function showSuccess(text) {
+        note.style.color = 'var(--c-green)';
+        note.textContent = text;
+      }
+
       if (!name || !email || !message) {
-        note.style.color = 'var(--c-orange)';
-        note.textContent = 'Please fill in your name, email, and message.';
-        return;
+        return showError('Please fill in your name, email, and message.');
       }
 
-      const emailOK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!emailOK) {
-        note.style.color = 'var(--c-orange)';
-        note.textContent = 'That email doesn\'t look right — please check it.';
-        return;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        return showError("That email doesn't look right — please check it.");
       }
 
-
-      note.style.color = 'var(--c-green)';
-      note.textContent = `Thanks, ${name}! Your message has been recorded locally. (This is a front-end demo — no email was actually sent.)`;
+      showSuccess('Thanks, ' + name + '! Your message has been recorded locally. (This is a front-end demo — no email was actually sent.)');
       form.reset();
 
-
-      setTimeout(() => { note.textContent = ''; }, 6000);
+      setTimeout(function () { note.textContent = ''; }, 6000);
     });
   }
 
-
   async function init() {
-
-
-
     document.documentElement.classList.add('js-enabled');
-
-
 
     initNavToggle();
     initBackToTop();
     initActiveNav();
     initContactForm();
-
 
     const data = await loadData();
     if (!data) return;
@@ -440,12 +339,9 @@
     renderTimeline(data.timeline);
     renderContact(data.profile);
 
-
-
     initRevealOnScroll();
-    initSkillBarAnimation();
+    initSkillBars();
   }
-
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

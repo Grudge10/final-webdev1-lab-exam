@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jan Liam E. Arias — Aspiring Web Developer. A responsive, JSON-driven personal portfolio built with vanilla HTML, CSS, and JavaScript." />
-  <meta name="author" content="Jan Liam E. Arias" />
-  <meta name="theme-color" content="#2a1d10" />
-
-  <title>Jan Liam E. Arias — Aspiring Web Developer</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23c9a87c'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='bold' fill='%232a1d10' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jan Liam E. Arias - Aspiring Web Developer. A responsive, JSON-driven personal portfolio built with vanilla HTML, CSS, and JavaScript.">
+  <meta name="author" content="Jan Liam E. Arias">
+  <meta name="theme-color" content="#2a1d10">
+  <title>Jan Liam E. Arias - Aspiring Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23c9a87c'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='bold' fill='%232a1d10' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
 </head>
-
 <body>
-
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="site-header" id="top">
     <div class="container header-inner">
-
       <a href="#home" class="brand" aria-label="Go to home section">
         <span class="brand-mark">J</span>
-        <span class="brand-text">Jan<span class="brand-accent">.</span></span>
+        <span class="brand-text">Jan Liam E. Arias</span>
       </a>
-
-      <button
-        class="nav-toggle"
-        id="navToggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="primaryNav"
-      >
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
       </button>
-
       <nav class="primary-nav" id="primaryNav" aria-label="Primary">
         <ul class="nav-list">
           <li><a href="#home" class="nav-link">Home</a></li>
@@ -52,104 +35,74 @@
           <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
 
   <main id="main">
-
     <section id="home" class="section hero" aria-labelledby="home-title">
-     <div class="container hero-inner">
-
-      <div class="hero-top-row reveal">
-        <div class="hero-tags-left">
-          <span class="badge-pill badge-pill--green" id="heroYear">2025</span>
-          <span class="selection-tag selection-tag--purple" id="heroRoleTag">
-            <span class="handle handle--tl"></span>
-            <span class="handle handle--tr"></span>
-            <span class="handle handle--bl"></span>
-            <span class="handle handle--br"></span>
-            FULL-STACK
-          </span>
-        </div>
-        <div class="hero-tools-right" aria-hidden="true">
-          <span class="tool-dot tool-dot--yellow"></span>
-          <span class="tool-icon tool-icon--pink">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </span>
-        </div>
-      </div>
-
-      <h1 id="home-title" class="hero-title reveal">
-        <span class="selection-box">
-          <span class="handle handle--tl"></span>
-          <span class="handle handle--tr"></span>
-          <span class="handle handle--bl"></span>
-          <span class="handle handle--br"></span>
-          <span class="hero-title-text">PORTFOLIO</span>
-        </span>
-
-        <span class="hero-arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-        </span>
-      </h1>
-
-      <div class="hero-name-row reveal">
-        <a href="#about" class="badge-pill badge-pill--blue hero-name-badge">
-          <span class="hero-name-badge-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-          </span>
-          <span id="heroNameBadge">JAN LIAM E. ARIAS</span>
-        </a>
-      </div>
-
-      <div class="hero-bottom reveal">
-        <p class="hero-tagline" id="heroTagline">
-          Aspiring Full-Stack Developer. Building tomorrow's web, one line of code at a time.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <div class="container hero-inner">
+        <div class="hero-top-row reveal">
+          <div class="hero-tags-left">
+            <span class="badge-pill badge-pill--green" id="heroYear">2025</span>
+            <span class="selection-tag" id="heroRoleTag">
+              <span class="handle handle--tl"></span><span class="handle handle--tr"></span><span class="handle handle--bl"></span><span class="handle handle--br"></span>
+              FULL-STACK
+            </span>
+          </div>
+          <div class="hero-tools-right" aria-hidden="true">
+            <span class="tool-dot"></span>
+            <span class="tool-icon"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/></svg></span>
+          </div>
         </div>
 
-        <ul class="hero-socials" id="heroSocials" aria-label="Social media links"></ul>
+        <h1 id="home-title" class="hero-title reveal">
+          <span class="hero-arrow-spacer" aria-hidden="true"></span>
+          <span class="selection-box">
+            <span class="handle handle--tl"></span><span class="handle handle--tr"></span><span class="handle handle--bl"></span><span class="handle handle--br"></span>
+            <span class="hero-title-text">PORTFOLIO</span>
+          </span>
+          <span class="hero-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/></svg></span>
+        </h1>
+
+        <div class="hero-name-row reveal">
+          <a href="#about" class="badge-pill badge-pill--blue hero-name-badge">
+            <span class="hero-name-badge-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/></svg></span>
+            <span id="heroNameBadge">JAN LIAM E. ARIAS</span>
+          </a>
+        </div>
+
+        <div class="hero-bottom reveal">
+          <p class="hero-tagline" id="heroTagline">Aspiring Web Developer. First-year CS student learning to build for the web.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+          <ul class="hero-socials" id="heroSocials" aria-label="Social media links"></ul>
+        </div>
       </div>
 
       <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
         <span class="mouse"><span class="wheel"></span></span>
       </a>
-     </div>
     </section>
 
     <section id="about" class="section about" aria-labelledby="about-title">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-eyebrow">01 — About</span>
+          <span class="section-eyebrow">01 - About</span>
           <h2 id="about-title" class="section-title">A little about me</h2>
         </header>
-
         <div class="about-grid">
-
           <aside class="about-photo reveal" aria-label="Profile photo">
             <div class="about-photo-frame">
-              <img
-                src="assets/profile.svg"
-                alt="Portrait of Jan Liam E. Arias"
-                width="400"
-                height="400"
-                loading="lazy"
-              />
+              <img src="assets/profile.jpg" alt="Portrait of Jan Liam E. Arias" width="400" height="400" loading="lazy">
             </div>
           </aside>
-
           <article class="about-bio reveal">
             <p id="aboutBackground">Loading background…</p>
-
             <h3 class="about-subtitle">Interests &amp; Hobbies</h3>
             <ul class="about-interests" id="aboutInterests" aria-label="My interests"></ul>
           </article>
-
           <aside class="about-highlights reveal" aria-label="Quick facts">
             <ul id="aboutHighlights"></ul>
           </aside>
@@ -160,11 +113,10 @@
     <section id="skills" class="section skills" aria-labelledby="skills-title">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-eyebrow">02 — Skills</span>
+          <span class="section-eyebrow">02 - Skills</span>
           <h2 id="skills-title" class="section-title">What I bring to the table</h2>
           <p class="section-sub">A mix of <span class="highlight highlight--cyan">technical foundations</span> and the soft skills that make teams work.</p>
         </header>
-
         <div class="skills-grid">
           <div class="skill-group reveal">
             <h3 class="skill-group-title">Technical Skills</h3>
@@ -181,11 +133,10 @@
     <section id="projects" class="section projects" aria-labelledby="projects-title">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-eyebrow">03 — Projects</span>
+          <span class="section-eyebrow">03 - Projects</span>
           <h2 id="projects-title" class="section-title">Things I've built</h2>
-          <p class="section-sub">Each card below is generated dynamically from <code>data.json</code> — <span class="highlight highlight--green">add a new entry</span> and a new card appears automatically.</p>
         </header>
-
+        <div class="project-filters reveal" id="projectFilters" role="tablist" aria-label="Filter projects by category"></div>
         <div class="project-grid" id="projectGrid" aria-live="polite"></div>
       </div>
     </section>
@@ -193,11 +144,10 @@
     <section id="timeline" class="section timeline-section" aria-labelledby="timeline-title">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-eyebrow">04 — Journey</span>
+          <span class="section-eyebrow">04 - Journey</span>
           <h2 id="timeline-title" class="section-title">Education &amp; Experience</h2>
           <p class="section-sub"><span class="highlight highlight--yellow">School</span>, <span class="highlight highlight--pink">work</span>, and certifications along the way.</p>
         </header>
-
         <ol class="timeline" id="timelineList"></ol>
       </div>
     </section>
@@ -205,34 +155,19 @@
     <section id="contact" class="section contact" aria-labelledby="contact-title">
       <div class="container">
         <header class="section-head reveal">
-          <span class="section-eyebrow">05 — Contact</span>
+          <span class="section-eyebrow">05 - Contact</span>
           <h2 id="contact-title" class="section-title">Let's work together</h2>
           <p class="section-sub">Got a project, an internship, or just want to say hi? <span class="highlight highlight--yellow">Drop me a message.</span></p>
         </header>
-
         <div class="contact-grid">
-
           <aside class="contact-info reveal" aria-label="My contact information">
             <ul id="contactInfo"></ul>
           </aside>
-
           <form class="contact-form reveal" id="contactForm" novalidate>
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required />
-            </div>
-            <div class="form-row">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="What's this about?" />
-            </div>
-            <div class="form-row">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell me more…" required></textarea>
-            </div>
+            <div class="form-row"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+            <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@example.com" required></div>
+            <div class="form-row"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="What's this about?"></div>
+            <div class="form-row"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me more…" required></textarea></div>
             <button type="submit" class="btn btn-primary btn-block">Send Message</button>
             <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
           </form>
@@ -243,11 +178,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="brand-mark">J</span>
-        <span>Jan Liam E. Arias</span>
-      </div>
-
+      <div class="footer-brand"><span class="brand-mark">J</span><span>Jan Liam E. Arias</span></div>
       <nav aria-label="Footer">
         <ul class="footer-nav">
           <li><a href="#home">Home</a></li>
@@ -256,19 +187,12 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-
       <ul class="footer-socials" id="footerSocials" aria-label="Social media links"></ul>
-
-      <p class="footer-copy">
-        &copy; <span id="year"></span> Jan Liam E. Arias. Built with HTML, CSS &amp; vanilla JS.
-      </p>
+      <p class="footer-copy">&copy; <span id="year"></span> Jan Liam E. Arias. Built with care.</p>
     </div>
   </footer>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    ↑
-  </button>
-
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
   <script src="js/main.js" defer></script>
 </body>
 </html>

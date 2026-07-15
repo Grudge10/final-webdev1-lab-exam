@@ -1,0 +1,267 @@
+{
+  "profile": {
+    "name": "Jan Liam E. Arias",
+    "role": "Aspiring Web Developer",
+    "roleTag": "CS STUDENT",
+    "tagline": "First-year CS student learning to build for the web, one line of code at a time.",
+    "taglineHTML": "<span class='highlight highlight--yellow'>First-year CS student</span> learning to build for the web, <span class='highlight highlight--pink'>one line of code</span> at a time.",
+    "profilePhoto": "assets/profile.jpg",
+    "location": "Philippines",
+    "email": "janliam.arias@lorma.edu",
+    "phone": "+63 947 193 0974",
+    "availability": "Open to learning opportunities and internships",
+    "socials": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Grudge10",
+        "icon": "github"
+      },
+      {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/janliam.arias/",
+        "icon": "facebook"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/sinofgrudge/",
+        "icon": "instagram"
+      },
+      {
+        "name": "X",
+        "url": "https://x.com/JanliamArias",
+        "icon": "twitter"
+      }
+    ]
+  },
+  "about": {
+    "background": "I am an enthusiastic first-year Bachelor of Science in Computer Science student, and I am interested to know more about how the web works and how to develop it. I got intrigued by the art of creating websites and web applications. Consequently, I got inspired and decided to pursue my career in this exciting field of study. Currently, I have been learning web development technologies in my free time to add to my knowledge. Some of the skills I have been focusing on include HTML, Cascading Style Sheets, JavaScript, Java, and how data structures in JSON work. I believe that the best way to learn is through practice. Therefore, I am excited to contribute my work to this portfolio.",
+    "interests": [
+      "Web Development",
+      "UI/UX Design",
+      "Open Source",
+      "Tech Communities",
+      "Gaming",
+      "Music"
+    ],
+    "highlights": [
+      {
+        "label": "Year Level",
+        "value": "1st"
+      },
+      {
+        "label": "Languages",
+        "value": "4"
+      },
+      {
+        "label": "Cups of Coffee",
+        "value": "∞"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "HTML5",
+      "level": 100,
+      "category": "technical",
+      "icon": "html5"
+    },
+    {
+      "name": "CSS3 / Flexbox & Grid",
+      "level": 100,
+      "category": "technical",
+      "icon": "css3"
+    },
+    {
+      "name": "JavaScript",
+      "level": 30,
+      "category": "technical",
+      "icon": "js"
+    },
+    {
+      "name": "Java",
+      "level": 55,
+      "category": "technical",
+      "icon": "java"
+    },
+    {
+      "name": "Git & GitHub",
+      "level": 95,
+      "category": "technical",
+      "icon": "git"
+    },
+    {
+      "name": "Communication",
+      "level": 80,
+      "category": "soft",
+      "icon": "chat"
+    },
+    {
+      "name": "Problem Solving",
+      "level": 75,
+      "category": "soft",
+      "icon": "puzzle"
+    },
+    {
+      "name": "Teamwork",
+      "level": 82,
+      "category": "soft",
+      "icon": "team"
+    },
+    {
+      "name": "Willingness to Learn",
+      "level": 95,
+      "category": "soft",
+      "icon": "learn"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Personal Website (Multi-Page)",
+      "category": "Web",
+      "description": "A multi-page personal website containing Home, Blog, Projects, and Contact pages. Semantic HTML is used and everything is tied together with a common navigation bar. A profile picture is included along with a screenshot. My first project for the WebDev1 class.",
+      "image": "assets/project-1.svg",
+      "tags": [
+        "HTML5",
+        "Multi-Page",
+        "Navigation",
+        "Semantic"
+      ],
+      "link": "https://github.com/Grudge10/webdev1/tree/main/activity1",
+      "featured": true
+    },
+    {
+      "title": "McDonald's Landing Page",
+      "category": "Web",
+      "description": "A reproduction of McDonald's McDonald's Philippines's landing page. Contains the McDelivery section, app store badges, social network links and several ad banners. Gained solid experience working with images, vector graphics and complex layouts.",
+      "image": "assets/project-2.svg",
+      "tags": [
+        "HTML5",
+        "Layout",
+        "SVG",
+        "Images"
+      ],
+      "link": "https://github.com/Grudge10/webdev1/tree/main/activity3",
+      "featured": true
+    },
+    {
+      "title": "Styled Product Page",
+      "category": "Web",
+      "description": "A product showcase page with an external stylesheet. Linked CSS, practiced styling cards, and laid out clean content for an e-commerce site.",
+      "image": "assets/project-3.svg",
+      "tags": [
+        "HTML5",
+        "CSS3",
+        "External CSS",
+        "Layout"
+      ],
+      "link": "https://github.com/Grudge10/webdev1/tree/main/activity4",
+      "featured": true
+    },
+    {
+      "title": "Interactive JavaScript App",
+      "category": "Web",
+      "description": "A web page with HTML, CSS, and JavaScript working together. An external application js file is used here, allowing us to bring in additional interactivity and dynamic content. This is part of the assignments for JavaScript activities in the WebDev 1 class.",
+      "image": "assets/project-4.svg",
+      "tags": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Interactivity"
+      ],
+      "link": "https://github.com/Grudge10/webdev1/tree/main/activity14",
+      "featured": false
+    },
+    {
+      "title": "Final WebDev Lab Exam",
+      "category": "Web",
+      "description": "A full Web project completed as a final lab exam. Includes HTML, CSS, JavaScript, and JSON data source as a front-end application that uses all the material covered during the WebDev 1 course.",
+      "image": "assets/project-5.svg",
+      "tags": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "JSON",
+        "Exam"
+      ],
+      "link": "https://github.com/Grudge10/final-webdev1-lab-exam",
+      "featured": true
+    },
+    {
+      "title": "PokéTerminal",
+      "category": "Java",
+      "description": "A Java terminal application, which is the final project for the OOPs course. It uses Maven for dependency management and follows OOPs concepts such as encapsulation, inheritance, and polymorphism.",
+      "image": "assets/project-6.svg",
+      "tags": [
+        "Java",
+        "Maven",
+        "OOP",
+        "Terminal App"
+      ],
+      "link": "https://github.com/Grudge10/oop-2026/tree/main/finals/poketerminal",
+      "featured": false
+    },
+    {
+      "title": "Seed of Hope",
+      "category": "Docs",
+      "description": "A documentation website built on top of Docusaurus and deployed on Netlify. It has a blog and documentation content, along with some custom React components. The tagline says 'Growing a better future, one seed at a time.'",
+      "image": "assets/project-7.svg",
+      "tags": [
+        "Docusaurus",
+        "React",
+        "Netlify",
+        "Deployed"
+      ],
+      "link": "https://seedofhope.netlify.app",
+      "featured": true
+    }
+  ],
+  "timeline": [
+    {
+      "type": "education",
+      "title": "BS in Computer Science",
+      "organization": "Lorma Colleges",
+      "period": "2025 - 2029 (Expected)",
+      "description": "I'm currently studying in my 1st year. I have classes on basic computer programming/java, web design, data structures, and discrete math. I am building my foundation of problem solving and software development."
+    },
+    {
+      "type": "experience",
+      "title": "Computer Programming 1",
+      "organization": "College_COMPRO · firstyr_firstsem",
+      "period": "2025 - 1st Semester",
+      "description": "The first programming course, which was dedicated to the Java fundamentals. We created several console applications, such as Calendar, Hangman, SSN Validator, vehicle plate generator, temperature converter, and palindrome checker. I also learned how to apply methods, conditions, loops, and string operations.",
+      "link": "https://github.com/Grudge10/College_COMPRO/tree/main/firstyr_firstsem"
+    },
+    {
+      "type": "experience",
+      "title": "Computer Programming 2",
+      "organization": "COMPRO_SecondSem",
+      "period": "2026 - 2nd Semester",
+      "description": "Continued Java with 16 activities, a midterm lab exam, and a final project (PokéTerminal). Learned about advanced methods, pass-by-reference, classes, and bigger programs.",
+      "link": "https://github.com/Grudge10/COMPRO_SecondSem"
+    },
+    {
+      "type": "experience",
+      "title": "Object-Oriented Programming",
+      "organization": "oop-2026",
+      "period": "2026",
+      "description": "I have learned Object Oriented Programming (OOP) principles in Java such as encapsulation, inheritance, polymorphism, and abstraction. I completed 16 activities, a midterm lab exam, and developed a final project called PokéTerminal, a terminal-base application created with Maven.",
+      "link": "https://github.com/Grudge10/oop-2026"
+    },
+    {
+      "type": "experience",
+      "title": "Data Structures",
+      "organization": "DATASTRUC",
+      "period": "2026",
+      "description": "The course requires studying data structures and algorithms for 3 terms (prelims, midterms, finals) which involves lots of coding. Basic structures such as arrays, linked lists, stacks, queues, trees, graph, sorting and searching algorithms were discussed and practiced.",
+      "link": "https://github.com/Grudge10/DATASTRUC"
+    },
+    {
+      "type": "experience",
+      "title": "WebDev 1 - HTML, CSS & JavaScript",
+      "organization": "webdev1",
+      "period": "2026",
+      "description": "Built 17 activities on HTML structure, CSS styling (Flexbox, Grid, responsive design), and JS interactivity. Among them, I completed a multi-page personal site, a McDonald's page clone, and a final lab exam. As a result, I have created this JSON-based portfolio.",
+      "link": "https://github.com/Grudge10/webdev1"
+    }
+  ]
+}
