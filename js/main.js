@@ -77,8 +77,8 @@
 
     $('#technicalSkills').innerHTML = tech.map(s =>
       '<li class="skill-item">' +
-      '<div class="skill-meta"><span>' + escapeHTML(s.name) + '</span><span class="skill-percent">' + s.level + '%</span></div>' +
-      '<div class="skill-bar"><div class="skill-bar-fill" data-level="' + s.level + '"></div></div>' +
+        '<div class="skill-meta"><span>' + escapeHTML(s.name) + '</span><span class="skill-percent">' + s.level + '%</span></div>' +
+        '<div class="skill-bar"><div class="skill-bar-fill" data-level="' + s.level + '"></div></div>' +
       '</li>'
     ).join('');
 
@@ -96,16 +96,16 @@
 
     $('#projectGrid').innerHTML = projects.map(p =>
       '<article class="project-card reveal" data-category="' + escapeHTML(p.category || '') + '">' +
-      '<div class="project-image">' +
-      '<img src="' + escapeHTML(p.image) + '" alt="' + escapeHTML(p.title) + ' preview" loading="lazy">' +
-      (p.featured ? '<span class="project-badge">Featured</span>' : '') +
-      '</div>' +
-      '<div class="project-body">' +
-      '<h3 class="project-title">' + escapeHTML(p.title) + '</h3>' +
-      '<p class="project-desc">' + escapeHTML(p.description) + '</p>' +
-      '<ul class="project-tags">' + p.tags.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' +
-      '<a href="' + escapeHTML(p.link || '#') + '" class="project-link"' + (p.link && p.link !== '#' ? ' target="_blank" rel="noopener noreferrer"' : '') + '>View Project</a>' +
-      '</div>' +
+        '<div class="project-image">' +
+          '<img src="' + escapeHTML(p.image) + '" alt="' + escapeHTML(p.title) + ' preview" loading="lazy">' +
+          (p.featured ? '<span class="project-badge">Featured</span>' : '') +
+        '</div>' +
+        '<div class="project-body">' +
+          '<h3 class="project-title">' + escapeHTML(p.title) + '</h3>' +
+          '<p class="project-desc">' + escapeHTML(p.description) + '</p>' +
+          '<ul class="project-tags">' + p.tags.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' +
+          '<a href="' + escapeHTML(p.link || '#') + '" class="project-link"' + (p.link && p.link !== '#' ? ' target="_blank" rel="noopener noreferrer"' : '') + '>View Project</a>' +
+        '</div>' +
       '</article>'
     ).join('');
 
@@ -130,14 +130,14 @@
   function renderTimeline(timeline) {
     $('#timelineList').innerHTML = timeline.map(t =>
       '<li class="timeline-item">' +
-      '<div class="timeline-card reveal">' +
-      '<span class="timeline-period">' + escapeHTML(t.period) + '</span>' +
-      '<span class="timeline-type">' + escapeHTML(t.type) + '</span>' +
-      '<h3 class="timeline-title">' + escapeHTML(t.title) + '</h3>' +
-      '<p class="timeline-org">' + escapeHTML(t.organization) + '</p>' +
-      '<p class="timeline-desc">' + escapeHTML(t.description) + '</p>' +
-      (t.link ? '<a href="' + escapeHTML(t.link) + '" class="timeline-link" target="_blank" rel="noopener noreferrer">View Repository →</a>' : '') +
-      '</div>' +
+        '<div class="timeline-card reveal">' +
+          '<span class="timeline-period">' + escapeHTML(t.period) + '</span>' +
+          '<span class="timeline-type">' + escapeHTML(t.type) + '</span>' +
+          '<h3 class="timeline-title">' + escapeHTML(t.title) + '</h3>' +
+          '<p class="timeline-org">' + escapeHTML(t.organization) + '</p>' +
+          '<p class="timeline-desc">' + escapeHTML(t.description) + '</p>' +
+          (t.link ? '<a href="' + escapeHTML(t.link) + '" class="timeline-link" target="_blank" rel="noopener noreferrer">View Repository →</a>' : '') +
+        '</div>' +
       '</li>'
     ).join('');
   }
