@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" role="img" aria-label="Interactive JavaScript App project thumbnail">
+  <rect width="600" height="400" fill="#2a1d10"/>
+  <g>
+    <rect x="120" y="60" width="360" height="280" rx="12" fill="#382515"/>
+    <rect x="120" y="60" width="360" height="34" rx="12" fill="#5e3f24"/>
+    <circle cx="140" cy="77" r="5" fill="#ea580c"/>
+    <circle cx="156" cy="77" r="5" fill="#fbbf24"/>
+    <circle cx="172" cy="77" r="5" fill="#10b981"/>
+    <rect x="200" y="71" width="160" height="12" rx="2" fill="#c9a87c" opacity="0.5"/>
+    <rect x="140" y="114" width="200" height="22" rx="4" fill="#d4a574"/>
+    <text x="150" y="129" font-family="Arial" font-size="12" font-weight="700" fill="#2a1d10">Click Counter: 7</text>
+    <rect x="140" y="146" width="320" height="14" rx="3" fill="#b09880" opacity="0.4"/>
+    <rect x="140" y="146" width="180" height="14" rx="3" fill="#ea580c"/>
+    <rect x="140" y="176" width="100" height="36" rx="8" fill="#ea580c"/>
+    <text x="190" y="198" font-family="Arial" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">CLICK ME</text>
+    <rect x="250" y="176" width="100" height="36" rx="8" fill="#382515"/>
+    <text x="300" y="198" font-family="Arial" font-size="11" font-weight="600" fill="#f5e6d3" text-anchor="middle">RESET</text>
+    <rect x="360" y="176" width="100" height="36" rx="8" fill="#10b981"/>
+    <text x="410" y="198" font-family="Arial" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">SAVE</text>
+    <rect x="140" y="228" width="320" height="92" rx="8" fill="#120a04"/>
+    <text x="156" y="252" font-family="'Courier New', monospace" font-size="11" fill="#b09880">app.js</text>
+    <text x="156" y="274" font-family="'Courier New', monospace" font-size="11" fill="#fbbf24">const</text>
+    <text x="200" y="274" font-family="'Courier New', monospace" font-size="11" fill="#c9a87c">btn</text>
+    <text x="232" y="274" font-family="'Courier New', monospace" font-size="11" fill="#b09880">= document</text>
+    <text x="156" y="294" font-family="'Courier New', monospace" font-size="11" fill="#b09880">  .querySelector(</text>
+    <text x="280" y="294" font-family="'Courier New', monospace" font-size="11" fill="#fbbf24">'button'</text>
+    <text x="156" y="314" font-family="'Courier New', monospace" font-size="11" fill="#b09880">btn.addEventListener(...)</text>
+  </g>
+  <text x="300" y="372" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#f5e6d3" text-anchor="middle" opacity="0.95">Interactive JS App</text>
+</svg>
